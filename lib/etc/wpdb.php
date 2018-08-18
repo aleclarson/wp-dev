@@ -1,8 +1,5 @@
 <?php
 
-if (!defined('ABSPATH'))
-  define('ABSPATH', $wp_home . '/');
-
 if (!defined('WPINC'))
   define('WPINC', 'wp-includes');
 

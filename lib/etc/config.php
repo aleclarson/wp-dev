@@ -1,21 +1,21 @@
 <?php
 
-$wp_home = preg_replace('/\/$/', '', getenv('WP_HOME'));
-if (empty($wp_home)) {
-  echo "Must define \$WP_HOME\n";
+$wp_root = preg_replace('/\/$/', '', getenv('WP_INSTALL_DIR'));
+if (empty($wp_root)) {
+  echo "Must define \$WP_INSTALL_DIR\n";
   exit(1);
 }
 
-$wp_config = $wp_home . '/wp-config.php';
+$wp_config = $wp_root . '/wp-config.php';
 if (!is_file($wp_config)) {
-  $wp_config = dirname($wp_home) . '/wp-config.php';
+  $wp_config = dirname($wp_root) . '/wp-config.php';
   if (!is_file($wp_config)) {
     echo "Cannot find wp-config.php\n";
     exit(1);
   }
 }
 
-define('ABSPATH', $wp_home . '/');
+define('ABSPATH', $wp_root . '/');
 
 $_SERVER['SERVER_PROTOCOL'] = 'HTTP/1.0';
 $_SERVER['SERVER_NAME'] = '';
